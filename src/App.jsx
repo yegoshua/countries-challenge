@@ -8,12 +8,18 @@ import Deatails from "./pages/Details";
 import NotFound from "./pages/NotFound";
 
 function App() {
+  const [countries, setCountries] = useState([]);
   return (
     <>
       <Header></Header>
       <Main>
         <Routes>
-          <Route path="/" element={<Homepage />} />
+          <Route
+            path="/"
+            element={
+              <Homepage countries={countries} setCountries={setCountries} />
+            }
+          />
           <Route path="country/:name" element={<Deatails />} />
           <Route element={<NotFound />} />
         </Routes>
